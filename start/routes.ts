@@ -55,7 +55,7 @@ Route.group(() => {
       return token
     }
     catch {
-      return response.badRequest('Invalid credentials')
+      return response.unauthorized()
     }
   })
 
