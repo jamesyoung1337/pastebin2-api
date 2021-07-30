@@ -25,10 +25,6 @@ import Hash from '@ioc:Adonis/Core/Hash'
 import User from 'App/Models/User'
 
 Route.group(() => {
-  
-  Route.get('/', async () => {
-    return { hello: 'world' }
-  })
 
   Route.post('/register', async ({ request, response }) => {
     const user = new User()
