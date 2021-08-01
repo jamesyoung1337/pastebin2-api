@@ -5,9 +5,12 @@ import {
   beforeSave,
   BaseModel,
   hasMany,
-  HasMany
+  HasMany,
+  hasManyThrough,
+  HasManyThrough
 } from '@ioc:Adonis/Lucid/Orm'
 import Paste from './Paste'
+import Vote from './Vote'
 
 export default class User extends BaseModel {
   @column({ isPrimary: true })
@@ -43,4 +46,11 @@ export default class User extends BaseModel {
 
   @hasMany(() => Paste)
   public pastes: HasMany<typeof Paste>
+
+  @hasManyThrough([
+    () => Vote,
+    () => Paste,
+  ])
+
+  public votes: HasManyThrough<typeof Vote>
 }

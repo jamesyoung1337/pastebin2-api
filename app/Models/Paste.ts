@@ -1,7 +1,8 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, belongsTo, BelongsTo, manyToMany, ManyToMany } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, belongsTo, BelongsTo, manyToMany, ManyToMany, hasMany, HasMany } from '@ioc:Adonis/Lucid/Orm'
 import User from './User'
 import Tag from './Tag'
+import Vote from './Vote'
 
 export default class Paste extends BaseModel {
   @column({ isPrimary: true })
@@ -28,4 +29,7 @@ export default class Paste extends BaseModel {
 
   @manyToMany(() => Tag)
   public tags: ManyToMany<typeof Tag>
+
+  @hasMany(() => Vote)
+  public votes: HasMany<typeof Vote>
 }
