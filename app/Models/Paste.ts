@@ -27,5 +27,5 @@ export default class Paste extends BaseModel {
   public user: BelongsTo<typeof User>
 
   @manyToMany(() => Tag)
-  public pastes: ManyToMany<typeof Tag>
+  public tags: ManyToMany<typeof Tag>
 }
